@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Band Soc Amsterdam Tour - First Aid Info</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: #f5f5f5;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            border-right: 1px solid #ddd;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:last-child {
+            border-right: none;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #764ba2;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #f5576c;
+        }
+
+        .emergency-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 1.1em;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .hospital-info {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #0077be;
+        }
+
+        .hospital-info h4 {
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .hospital-info p {
+            margin: 5px 0;
+        }
+
+        .rota-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .rota-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .rota-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .rota-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .rota-table tr:hover {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #e17055;
+        }
+
+        .contact-item strong {
+            color: #2d3436;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: #636e72;
+            margin: 3px 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #fd79a8;
+        }
+
+        .tip-box h4 {
+            color: #d63031;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .hospital-map {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 3px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .hospital-map {
+                height: 250px;
+            }
+
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rota-table {
+                font-size: 0.9em;
+            }
+
+            .rota-table th,
+            .rota-table td {
+                padding: 10px;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            text-decoration: none;
+            display: none;
+            z-index: 999;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        .scroll-to-top.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbigbandsoc.co.uk%2Fwp-content%2Fuploads%2F2023%2F10%2Flogo-black-1024x1024.png&f=1&nofb=1&ipt=f89c47e621b14b16690554f32f2749380a014b1f9ef7d803926f50d52994d6c2" alt="Big Band Society Logo" style="display: block; margin: 0 auto; max-width: 300px; height: auto;">
+    <div class="container">
+        <header>
+            <h1>🎺 Big Band Soc Amsterdam Tour</h1>
+            <p>First Aid & Safety Information | June 1-5, 2026</p>
+        </header>
+
+        <nav>
+            <a href="#emergency">Emergency</a>
+            <a href="#hospitals">Hospitals</a>
+            <a href="#first-aid">First Aid</a>
+            <a href="#rota">Sober Rota</a>
+            <a href="#contact">Contacts</a>
+        </nav>
+
+        <div class="content">
+            <!-- Emergency Section -->
+            <section id="emergency">
+                <h2>🚨 EMERGENCY CONTACTS - READ THIS FIRST</h2>
+                
+                <div class="emergency-box" style="background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); font-size: 1.3em; padding: 30px;">
+                    <strong>LIFE-THREATENING EMERGENCY: CALL 112 IMMEDIATELY</strong><br>
+                    <span style="font-size: 0.9em; margin-top: 10px; display: block;">Police, Fire, Ambulance - For serious injuries, loss of consciousness, or severe medical issues</span>
+                </div>
+
+                <div class="emergency-box" style="background: linear-gradient(135deg, #d62828 0%, #a71e1e 100%); margin-top: 15px;">
+                    AFTER CALLING 112, CONTACT JACK (Designated First Aider)<br>
+                    <span style="font-size: 0.85em; margin-top: 8px; display: block;">[Jack's Phone: +44 7484 196364]</span>
+                </div>
+
+                <div class="emergency-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-top: 10px;">
+                    FOR NON-SERIOUS INJURIES: Contact Jack immediately<br>
+                    Non-Emergency Medical: +31 088 003 0600
+                </div>
+
+                <div class="info-card" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 8px solid #1976d2; margin-top: 20px;">
+                    <h4>✅ JACK IS HERE TO HELP</h4>
+                    <p><strong>Jack is the designated first aider for this tour.</strong></p>
+                    <p style="margin-top: 10px;">No matter the time or situation:</p>
+                    <p>✓ Jack will remain fit to respond to medical issues throughout the tour.</p>
+                    <p>✓ Jack should be contacted for medical concerns or injuries during the tour.</p>
+                    <p>✓ For serious injuries: Call 112 first, then contact Jack</p>
+                    <p>✓ For non-serious injuries: Contact Jack immediately</p>
+                    <p>✓ Jack will assess the situation and provide first aid</p>
+                    
+                    <p style="margin-top: 15px; font-weight: bold; color: #1976d2;">Jack's Training & Qualifications - UP TO AND INCLUDING:</p>
+                    <p>🔴 <strong>Automated External Defibrillator (AED)</strong> - Trained in AED use for cardiac emergencies and sudden cardiac arrest.</p>
+                    <p>🩸 <strong>Tourniquet Application</strong> - Trained to apply tourniquets for severe bleeding, limb injuries, and hemorrhage control</p>
+                    <p>🩹 <strong>Wound Packing</strong> - Trained in wound packing and severe bleeding control.</p>
+                    
+                    <p style="margin-top: 12px; padding: 10px; background: rgba(25, 118, 210, 0.1); border-radius: 5px; font-weight: bold;">Jack is trained in first aid, AED use, severe bleeding control, and emergency response until professional help arrives.</p>
+                </div>
+
+                <p style="margin-top: 20px; font-size: 1.05em; line-height: 1.8;">
+                    <strong>Emergency Response Protocol:</strong><br>
+                    1. <strong>SERIOUS INJURY/LIFE-THREATENING:</strong> Call 112 immediately, then contact Jack<br>
+                    2. <strong>NON-SERIOUS INJURY/MEDICAL ISSUE:</strong> Contact Jack first<br>
+                    3. Stay calm and assess the situation<br>
+                    4. Move the person to a safe location if possible<br>
+                    5. Provide basic first aid if trained<br>
+                    6. Keep the person warm and comfortable until help arrives
+                </p>
+            </section>
+
+            <!-- NO FILMING WARNING -->
+            <section style="background: #ff0000; padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);">
+                <h2 style="color: white; text-align: center; font-size: 2em; margin-bottom: 20px;">⚠️ DO NOT FILM ⚠️</h2>
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 10px; color: #333; border: 4px solid #ff0000;">
+                    <p style="font-size: 1.2em; font-weight: bold; margin-bottom: 15px; color: #ff0000;">IF SOMEONE IS TOO DRUNK OR GREENS OUT:</p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 15px;">
+                        <strong>DO NOT FILM OR TAKE PHOTOS</strong><br>
+                        It is <strong>scary, embarrassing, and disrespectful</strong> to film someone in distress.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 15px;">
+                        <strong>INSTEAD:</strong> Immediately contact a <strong>person of authority within the society</strong> — a committee member, tour leader, or sober person.
+                    </p>
+                    <p style="font-size: 1em; color: #d62828;">
+                        Your discretion and respect are essential. Help the person in need.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Hospitals Section -->
+            <section id="hospitals">
+                <h2>🏥 Hospital Information (Amsterdam)</h2>
+                
+                <div class="hospital-info">
+                    <h3>Amsterdam UMC</h3>
+                    <h4>Emergency Department (24/7)</h4>
+                    <p><strong>Address:</strong> Meibergdreef 9, 1105 AZ Amsterdam</p>
+                    <p><strong>Phone:</strong> +31 20 566 9111</p>
+                    <p><strong>Travel:</strong> Metro 50 or 54 to Holendrecht station.</p>
+                    <p><strong>Distance from City Center:</strong> ~8 km (20-25 min by transport)</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19521.20831644338!2d4.919984074316395!3d52.29511299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c60b7c33855225%3A0xb2a977ee8c43d54c!2sAMC%20Emergency%20Room!5e0!3m2!1sen!2suk!4v1779627025756!5m2!1sen!2suk" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
+
+
+                <div class="info-card" style="background: linear-gradient(135deg, #ffeb3b 0%, #fdd835 100%); border-left: 8px solid #f57f17;">
+                    <h4>💡 Insurance & Documentation - CARRY AT ALL TIMES:</h4>
+                    <p><strong style="color: #d62828;">🚨 These items MUST be with you at all times in case of emergency:</strong></p>
+                    <p>✓ <strong>Your Passport</strong> - Required for hospital admission and identification</p>
+                    <p>✓ <strong>GHIC Card (Global Health Insurance Card)</strong> - For UK citizens traveling to the EU</p>
+                    <p>✓ Travel insurance documents - Keep copies of policy details</p>
+                    <p style="margin-top: 15px; font-size: 0.95em;">• Many hospitals accept international insurance</p>
+                    <p style="font-size: 0.95em;">• Ask for an English-speaking staff member if needed</p>
+                    <p style="font-size: 0.95em;">• Keep emergency contact information in your phone or on paper</p>
+                </div>
+            </section>
+
+            <!-- First Aid Section -->
+            <section id="first-aid">
+                <h2>🩹 First Aid Information</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-box">
+                        <h4>Common Issues</h4>
+                        <p><strong>Blisters:</strong> Clean, apply blister plaster, keep dry</p>
+                        <p><strong>Sprains:</strong> Rest, ice, compression, elevation (RICE)</p>
+                        <p><strong>Headache:</strong> Hydrate, rest in cool area, paracetamol if needed</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Dehydration Signs</h4>
+                        <p>• Thirst and dry mouth</p>
+                        <p>• Dizziness or lightheadedness</p>
+                        <p>• Dark urine</p>
+                        <p><strong>Response:</strong> Move to shade, drink water slowly</p>
+                    </div>
+
+                    <div class="tip-box" style="background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%); border: 2px solid #d63031;">
+                        <h4 style="color: #d63031;">❤️ CARDIAC EMERGENCY / CHEST PAIN</h4>
+                        <p style="font-size: 1.1em; font-weight: bold; color: #d63031;">1. CALL 112 IMMEDIATELY</p>
+                        <p style="margin-bottom: 15px;"><strong>2. Then contact Jack</strong> - he is trained and qualified with an AED and can:</p>
+                        
+                        <p>✓ Use an AED and perform CPR until emergency services arrive.</p>
+                        <p>✓ Stabilize the patient until the ambulance arrives</p>
+                        <p style="margin-top: 8px; font-size: 0.95em;"><strong>Jack is trained in first aid, AED use, severe bleeding control, and emergency response until professional help arrives.</strong></p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Alcohol-Related Issues</h4>
+                        <p>• Monitor their breathing and responsiveness. If they become unconscious, difficult to wake, or have slowed breathing, call 112 immediately.</p>
+                        <p>• Water is fine. Food is okay if fully conscious, but don’t encourage giving food to semi-conscious intoxicated people due to choking risk.</p>
+                        <p>• Monitor for excessive intoxication</p>
+                        <p>• Place unconscious but breathing people in the recovery position.</p>
+                        <p>• Call 112 if unresponsive</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Allergic Reactions</h4>
+                        <p>• Ask about known allergies</p>
+                        <p>• Keep antihistamines available</p>
+                        <p>• Call 112 for severe reactions</p>
+                        <p>• EpiPens for severe cases</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Heat Exhaustion</h4>
+                        <p>• Move to cool location</p>
+                        <p>• Remove excess clothing</p>
+                        <p>• Apply cool, wet cloths</p>
+                        <p>• Drink water with electrolytes</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Minor Injuries</h4>
+                        <p>• Stop bleeding with pressure</p>
+                        <p>• Clean wound with water</p>
+                        <p>• Apply antibiotic ointment</p>
+                        <p>• Cover with sterile bandage</p>
+                    </div>
+
+                    <div class="tip-box" style="background: linear-gradient(135deg, #ff7675 0%, #fab1a0 100%); border: 2px solid #d63031;">
+                        <h4 style="color: #d63031;">🩸 SEVERE BLEEDING / SERIOUS WOUNDS</h4>
+                        <p style="font-size: 1.1em; font-weight: bold; color: #d63031;">1. CALL 112 IMMEDIATELY</p>
+                        <p style="margin-bottom: 15px;"><strong>2. Then contact Jack</strong> - he is trained and qualified to:</p>
+                        <p>✓ Apply tourniquets for severe limb bleeding</p>
+                        <p>✓ Perform wound packing and severe bleeding control.</p>
+                        <p>✓ Control hemorrhage and stabilize the patient</p>
+                        <p style="margin-top: 10px;"><strong>Jack will provide first aid and help stabilize the situation until emergency services arrive.</strong></p>
+                    </div>
+                </div>
+
+                <div class="info-card" style="background: linear-gradient(135deg, #ffbf69 0%, #f4a261 100%); border-left-color: #d62828; border-left-width: 8px;">
+                    <h4>🟢 Cannabis/Weed - Greening Out</h4>
+                    <p><strong style="color: #d62828; font-size: 1.2em;">Greening out is usually not life-threatening and often improves with reassurance, hydration, and rest. However, call 112 if the person is unconscious, having breathing difficulties, chest pain, seizures, severe confusion, or if you are seriously concerned. ⚠️</strong></p>
+                    
+                    <p style="color: #d62828; margin-bottom: 15px;"><strong>This is not usually a medical emergency. Contact Jack or a sober person for guidance.</strong></p>
+                    
+                    <p><strong>Common Symptoms (normal & will pass):</strong></p>
+                    <p>• Dizziness, nausea, or vomiting</p>
+                    <p>• Anxiety or panic feeling</p>
+                    <p>• Sweating or chills</p>
+                    <p>• A fast heartbeat is common after cannabis use and often settles with reassurance and rest.</p>
+                    <p>• Feeling faint or lightheaded</p>
+                    <p style="margin-bottom: 15px;"><em>These symptoms are usually temporary and improve with reassurance and rest.</em></p>
+                    
+                    <p><strong>What to do immediately:</strong></p>
+                    <p>1. Contact <strong>Jack (designated first aider)</strong> or a <strong>sober committee member</strong></p>
+                    <p>2. Move to a quiet, safe location away from crowds</p>
+                    <p>3. Sit or lie down in a comfortable position</p>
+                    <p>4. Reassure the person - remind them it will pass</p>
+                    <p>5. Have them breathe slowly and deeply</p>
+                    <p>6. Provide water or a sugary drink (juice/soft drink)</p>
+                    <p>7. Keep them in a cool, dark space if possible</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Recovery:</strong> Symptoms typically pass within 1-3 hours with rest and calm support. Stay with the person the entire time.</p>
+                    
+                    <div style="background: rgba(214, 40, 40, 0.1); padding: 12px; border-radius: 5px; margin-top: 15px; border-left: 4px solid #d62828;">
+                        <p><strong style="color: #d62828;">❌ ONLY call 112 if:</strong></p>
+                        <p>• Person loses consciousness and cannot be woken</p>
+                        <p>• Chest pain (not panic-related)</p>
+                        <p>• Difficulty breathing that doesn't improve with calm breathing</p>
+                        <p>• Suspected seizure or convulsions</p>
+                        <p style="margin-top: 8px; font-size: 0.95em;"><strong>GREENING OUT ALONE IS NOT A 112 EMERGENCY</strong></p>
+                    </div>
+                </div>
+
+                <div class="info-card" style="background: linear-gradient(135deg, #fff5e1 0%, #ffe8cc 100%); border-left-color: #f5576c;">
+                    <h4>📋 Tour Safety Principles:</h4>
+                    <p><strong>Prevention is better than cure!</strong></p>
+                    <p>• Pair up buddies and check on each other</p>
+                    <p>• Take regular breaks and hydrate</p>
+                    <p>• Wear comfortable, appropriate footwear</p>
+                    <p>• Stay aware of your surroundings</p>
+                    <p>• Know the locations of bathrooms and rest areas</p>
+                    <p>• Report any issues immediately to tour leaders</p>
+                </div>
+            </section>
+
+            <!-- Sober Rota Section -->
+            <section id="rota">
+                <h2>👁️ Committee Sober Rota</h2>
+                <p style="margin-bottom: 20px; font-size: 1.05em;">
+                    One sober committee member is assigned each event to ensure safety. The sober person is the primary contact for any first aid or safety issues.
+                </p>
+                
+                <table class="rota-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Sober Committee Member</th>
+                            <th>Contact Phone</th>
+                            <th>Backup Person</th>
+                            <th>Backup Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mon, June 1</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                        </tr>
+                        <tr>
+                            <td>Tue, June 2</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                        </tr>
+                        <tr>
+                            <td>Wed, June 3</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                        </tr>
+                        <tr>
+                            <td>Thu, June 4</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                        </tr>
+                        <tr>
+                            <td>Fri, June 5</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                            <td>[Name]</td>
+                            <td>[+31 6 ...]</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-card" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
+                    <h4>💼 Sober Person Responsibilities:</h4>
+                    <p>✓ Stay alert and available at all times</p>
+                    <p>✓ Monitor group wellbeing</p>
+                    <p>✓ Know the location of nearest hospital</p>
+                    <p>✓ Have emergency numbers easily accessible</p>
+                    <p>✓ Check in with tour leader regularly</p>
+                    <p>✓ Be first responder for any incidents</p>
+                    <p>✓ Document any issues and report afterwards</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>📞 Key Contacts</h2>
+                
+                <div class="contact-item">
+                    <strong>🎺 Tour leaders</strong>
+                    <p>Name: Abi Watkins, Eddie Matthews</p>
+                    <p>Phone: [+44 7958 976589], [+44 7754 400727]</p>
+                    <p>Email: contact@bigbandsoc.co.uk</p>
+                </div>
+
+                <div class="contact-item">
+                    <strong>🏥 Designated First Aider</strong>
+                    <p>Name: Jack Magson</p>
+                    <p>Phone: [+44 7484 196364]</p>
+                    <p>Training: First Aid Certificate</p>
+                </div>
+
+                <div class="contact-item" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+                    <strong>🌍 UK Embassy - LOST PASSPORT & LEGAL TROUBLE</strong>
+                    <p><strong>British Embassy The Hague</strong></p>
+                    <p>Address: Lange Voorhout 10, 2514 ED The Hague, Netherlands</p>
+                    <p><strong>Online Contact Form:</strong> <a href="https://www.contact.service.csd.fcdo.gov.uk/posts/netherlands/british-embassy-the-hague-netherlands" target="_blank" style="color: #d63031; font-weight: bold;">https://www.contact.service.csd.fcdo.gov.uk/posts/netherlands/british-embassy-the-hague-netherlands</a></p>
+                    <p><strong>For:</strong> Lost/stolen passport, legal issues, emergencies abroad</p>
+                    <p><strong>Emergency Travel Document:</strong> Available if passport is lost or stolen</p>
+                    <p style="font-size: 0.9em; margin-top: 8px; color: #555;"><em>Apply online or contact the embassy directly. They can provide consular assistance and guidance for arrests, legal issues, lost passports, and emergencies abroad. Emergency cases are prioritized.</em></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.8649718739616!2d4.3079506774326966!3d52.08218787194964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b73ae86e8a01%3A0x222914326f23e0e3!2sBritish%20Embassy%20The%20Hague!5e0!3m2!1sen!2suk!4v1779627163033!5m2!1sen!2suk" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+        <footer>
+    <p style="font-size: 0.9em; color: #555;">This guide does not replace professional medical advice or emergency services.</p>
+            <p>&copy; 2026 Big Band Soc Amsterdam Tour | First Aid & Safety Guide</p>
+        </footer>
+    </div>
+
+    <a href="#" class="scroll-to-top" onclick="scrollToTop(event)">↑</a>
+
+    <script>
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
